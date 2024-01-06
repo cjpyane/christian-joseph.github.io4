@@ -251,7 +251,14 @@ _.filter = function(array, func){
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
-
+_.reject = function(array, func){
+    var hold = [];
+    for(let i = 0; i < array.length; i++){
+        if(!func(array[i], i, array)){
+            hold.push(array[i])
+        }
+    }return hold
+}
 
 /** _.partition
 * Arguments:
@@ -271,6 +278,21 @@ _.filter = function(array, func){
 *   }); -> [[2,4],[1,3,5]]
 }
 */
+_.partition = function(array, func){
+    var subArr = [];
+    var subArr2 = [];
+    var ret = [];
+    for(let i = 0; i < array.length; i++){
+        if(func(array[i], [i], array)){
+            subArr.push(array[i])
+        }else if(!func(array[i], i, array)){
+            subArr2.push(array[i])
+        }
+    }
+    ret.push(subArr)
+    ret.push(subArr2)
+    return ret
+}
 
 
 /** _.map
@@ -288,7 +310,21 @@ _.filter = function(array, func){
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
-
+_.map = function(coll, func){
+    var ret = [];
+    if(Array.isArray(coll)){
+        for(let i = 0; i < coll.length; i++){
+            if(func(coll[i], i, coll)){
+                ret.push(func(coll[i], i, coll))
+            }
+        }
+    }else for(let key in coll){
+        if(func(coll[key], key, coll)){
+            ret.push(func(coll[key], key, coll))
+        }
+    }
+    return ret
+}
 
 /** _.pluck
 * Arguments:
@@ -300,7 +336,13 @@ _.filter = function(array, func){
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
-
+_.pluck = function(array, prop){
+    return _.map(array, function(array){
+        for(let key in array){
+            return array[key]
+        }
+    });
+}
 
 /** _.every
 * Arguments:

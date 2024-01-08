@@ -22,10 +22,21 @@ var _ = require(/* Replace this with the name of your lodown! */);
  */
 
 var maleCount = function(array) {
-
+let males = _.filter(array, function(customer){
+    return customer.gender === 'male'
+});
+return males.length
 };
 
-var femaleCount;
+var femaleCount = function(array){
+    let females = _.reduce(array, function(count, customer){
+        if(customer.gender === 'female'){
+            return count + 1
+        }
+        return count
+    }, 0);
+    return females
+}
 
 var oldestCustomer;
 

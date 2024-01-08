@@ -364,7 +364,43 @@ _.pluck = function(array, prop){
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
-
+_.every = function(coll, func){
+    let allItemsPassed = true;
+    if(func === undefined){
+        if(Array.isArray){
+            for(let i = 0; i < coll.length; i++){
+                if(!coll[i]){
+                    allItemsPassed = false
+                }
+            }
+        }
+        else{
+            for(let key in coll){
+                if(!coll[key]){
+                    allItemsPassed = false
+                }
+            }
+        }
+    }
+    else{
+        if(Array.isArray(coll)){
+            for(let i = 0; i < coll.length; i++){
+                if(!func(coll[i], i, coll)){
+                    allItemsPassed = false;
+                }
+            }
+        }
+        else{
+            for(let key in coll){
+                if(!func(coll[key], key, coll)){
+                    allItemsPassed = false
+                }
+                else func(coll[key], key, coll)
+            }
+        }
+    }
+    return allItemsPassed
+}
 
 /** _.some
 * Arguments:
@@ -386,6 +422,47 @@ _.pluck = function(array, prop){
 *   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
+_.some = function(coll, func){
+    var ret = false
+    if(func === undefined){
+        if(Array.isArray(coll)){
+            for(let i = 0; i < coll.length; i++){
+                if(coll[i]){
+                    ret = true;
+                    break;
+                }
+            }
+        }
+        else{
+            for(let key in coll){
+                if(coll[key]){
+                    ret = true;
+                    break;
+                }
+            }
+        }
+    }
+    else{
+        if(Array.isArray(coll)){
+            for(let i = 0; i < coll.length; i++){
+                if(func(coll[i], i, coll)){
+                    ret = true;
+                    break;
+                }
+            }
+        }
+        else{
+            for(let key in coll){
+                if(coll[key]){
+                    ret = true
+                    break;
+                }
+            }
+        }
+    }
+    
+    return ret
+};
 
 
 /** _.reduce
@@ -406,7 +483,20 @@ _.pluck = function(array, prop){
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
-
+_.reduce = function(arr, func, seed){
+    let ret;
+    if(seed === undefined){
+        ret = arr[0];
+        for(let i = 1; i < arr.length; i++){
+            ret = func(ret, arr[i], i, arr);
+        }
+    }else{
+        ret = seed;
+        for(let i = 0; i < arr.length; i++){
+            ret = func(ret, arr[i], i, arr)
+        }
+    }return ret
+}
 
 /** _.extend
 * Arguments:
@@ -422,7 +512,10 @@ _.pluck = function(array, prop){
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
-
+_.extend = function(target, ...obj){
+    Object.assign(target, ...obj)
+    return target
+}
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////

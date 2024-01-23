@@ -1,0 +1,186 @@
+//variables
+/*
+0: variables a used to hold data like array's, objects, number's, booleans, and strings insing our code.
+that can be editied, accessed, and deleted or added depending on what you code ask for
+
+1: to create variables we use declerations named var, let and const. theese all have diffrent parameters
+that you should account for in your code. but essentially they all create a new variable that can hold data
+2: to add values to variables we use initilization this is the procees in wich we assighn our variable somthing after declaring initilization
+
+*/
+//1. declerations//
+var name;
+console.log(name) //prints undefined due to no initilization
+
+//2. initilization//
+name = 'chris'
+console.log(name)//return true
+//once declared there is not a need to declare agin so assighning/initilization is only needed         
+
+
+
+
+
+
+//Data Types//
+/*
+0: Data types are kinds of values that we use to create, minuplute code and store in variables.
+
+1: there are two differnt types of Data Types : primitive/simple and complex data Type. simple data types are used
+to handle simple data like true/false while complex data hold sets of multiple data types like arrays/objects
+
+*/
+//1. Numbers//
+var nums = 10;
+console.log(nums)// return 10 
+
+//2. strings //strings are like word they can return a message for ex. they are surrounded by ''
+var message = 'hello there'
+console.log(message)//returns hello there to the console
+
+//3. booleans// booleans are true/false data theese are simple data types
+var bool = true
+console.log(bool)//returns true
+
+//4. Array's//are a complex data type that hold values in [] counted by indexes starting from 0
+var arr = [0, 1, 2]// this is how array iteration work the first iteration 0 would start at index 0, 1 is the i index, so on
+//idexs are used to access any index you choose
+let index = arr[1]//this is how you access indexes in arrays the array name then the index of your chose in brakets
+console.log(index)//this returns 1 
+
+//5. object's// are another complex data Type that hold values in key/value pairs called properties
+var obj = {
+    date: 'today'
+    time: 1230,
+    human: true,
+}
+//as you can see objects can hold differnt types of data types even array and arrays can hold objects aswell
+//the date, time and human are called keys while the data next to them are called values this is how data is stores in an object
+
+//2. functions//
+/*
+0. funtions are (made-programs) that can be called in the code you are using. there are also native funtions
+like reduce, map and more. 
+1. values are passed through as parameters then code will run if needed then a return. if no return there is a undefined returned after funtion is ran
+*/
+var logName = function(name){
+console.log(name)
+}
+//this simple funtion taks in a name as string assuming only string's are input into the array it will return said name input
+
+
+
+//3.undefined//
+
+
+
+//4.null//
+
+
+
+//5.NAN//
+
+
+
+
+
+
+
+
+//Operators//
+
+/*
+0. operators are symbols used to manipulate code of variables and values.
+
+*/
+//assighnment operators//
+var num = 12
+num += 2
+console.log(num)//this returns 14
+//this is how the differnt assighnment operators are used
+/*
+(differnt assighnment operators)
+= : this is just a equal sighn 
+-= : this is the oposit of += just subtract
+*= : this is multiplying the in the mix
+/= : this is divion
+%= : this is testing if the input is a number that divide into it ex:
+
+var name = 12
+name % 2 === 0 //this returns true
+**= //this is the expont symbol
+
+//arithmitic operator//
+
+
+
+
+//Comparison operators//
+
+//logical operators
+
+//unary operators//
+
+
+//tenary oopeators//
+
+
+
+
+
+
+
+String Manipulation
+/*
+
+
+*/
+//with operators//
+
+
+
+
+
+Control Flow
+/*
+0. control flow is the order code is executed
+ 
+*/
+//if//
+if(name === 'chris'){
+    return true
+}
+//this is statment is used for multiple purposed 
+//but it will always mean if sum code passes return sothing based on what the propgrammer wants
+//elseif//
+else if(name = 'jamal'){
+    return false
+}
+//this statment is sayong else if this code is true then return input code
+
+//else//
+else{
+    return null
+}
+//this is saying at the end of all code being ran
+//if all code dose not pas or return then return this code
+
+//switch//
+
+
+
+Loops
+/*
+
+
+*/
+//while//
+//while loop loops though code as long as it is true
+var num = 5 
+while(num < 15){
+    return 'low num'
+    num++
+}
+//for//
+
+//for-in//

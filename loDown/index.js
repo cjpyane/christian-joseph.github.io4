@@ -32,7 +32,9 @@ module.exports.typeOf = typeOf;
 
 
 /**
- * 
+ * first: this function is meant to take an array and another input to return the values in array based on the number input and return in a stored array
+ * @param {array} array: this is the array whose values should be returned in a new sliced array
+ * @param {number} number: this is the increment that tells us where to slice in array                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
  * 
  * 
  * 
@@ -54,7 +56,9 @@ function first(array, number){
 module.exports.first = first;
 
 /**
- * 
+ * last: this func is the same as theone above but acces the values behind or last of the input number
+ * @param {array} array: this is the array that holds the values meant to return 
+ * @paramm {number} number: this is the number that tells us whare to slice from the last index
  * 
  * 
  * 
@@ -76,12 +80,15 @@ function last(array, number){
 module.exports.last = last;
 
 /**
+ * indexOf: this function returns the index of the array value that is targeted by value param
+ * @param {array} array: this the array that acesses the index then returns it
+ * @param {value} value: this is the val that tells us what index to access and eturn
  * 
  * 
  * 
  */
 
-function(array, value){
+function indexOf(array, value){
     for(let i = 0; i < array.length; i++){
         if(array.includes(value)){
             return 1
@@ -94,7 +101,9 @@ module.exports.indexOf = indexOf;
 
 
 /**
- * 
+ * contains: this function test wethere or not a input of value is contained in the array
+ * @ param {array} array: this array is the data set we are trying to see is holding value input inside
+ * @ param {alue} value: this is the value thats tested if inside array
  * 
  * 
  * 
@@ -112,8 +121,8 @@ function contains(array, value){
 module.exports.contains = contains;
 
 /**
- * 
- * 
+ * unique: this function takes an array and test if any of the index values have been repeated
+ * @param {array} array: this is the array tested for duplicates
  * 
  * 
  * 
@@ -131,7 +140,9 @@ module.exports.unique = unique;
 
 
 /**
- * 
+ * filter: this function loops through array and calls a function on each index in array
+ * @param {array} array: this is the array being tested by the function
+ * @param {function} function: this is the callback that is tested againg each value in array
  * 
  * 
  * 
@@ -147,9 +158,9 @@ function filter(array, func){
 module.exports.filter = filter;
 
 /**
- * 
- * 
- * 
+ * reject: this function is the opposite of filter it returns the values that return false from data set   
+ * @param {array} array: the array in this function is being looped through to callback the values tha return false
+ * @param {function} func:this is the function used to call on the data set
  * 
  */
 function reject(array, func){
@@ -164,8 +175,9 @@ module.exports.reject = reject
 
 
 /**
- * 
- * 
+ * partition: this function get a data set array and calls the function on each value to return the true and false values in an array
+ * @param {array} array:
+ * @param {function} func:
  * 
  * 
  */
@@ -187,8 +199,9 @@ function partition(array, func){
 module.exports.partition = partition
 
 /**
- * 
- * 
+ * map:
+ * @param {}
+ * @param {}
  * 
  */
 function map(coll, func){

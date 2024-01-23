@@ -171,7 +171,8 @@ else{
 
 Loops
 /*
-
+0. loops are used to do repeated task based on the input of the user. 
+1. loops have conditons that tell them where tostart from and stop loops contie code until condition returns alse
 
 */
 //while//
